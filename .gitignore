@@ -1,6 +1,5 @@
 # Binaries for programs and plugins
 main
-nbt
 *.exe
 *.exe~
 *.so
