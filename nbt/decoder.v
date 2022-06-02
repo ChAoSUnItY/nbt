@@ -1,6 +1,6 @@
 module nbt
 
-fn (mut d Decoder) read_tag() ?(u8, string) {
+fn (mut d Decoder) read_tag() ?(i16, string) {
 	tag_type := d.read_short()?
 	tag_name := d.read_string()?
 
