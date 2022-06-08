@@ -1,14 +1,10 @@
 module main
 
 import os
-import io
-import nbt
+import compress.deflate
 
 fn main() {
-	mut file := os.open("./v.mod") or { panic(err) }
-	defer {
-		file.close()
-	}
-	mut r := io.new_buffered_reader(reader: file, cap: 16)
-	decoder := nbt.new_decoder(r)
+	mut bytes := os.read_bytes("./signal_intervals.dat")?[10..]
+	bytes = deflate.decompress(bytes)?
+	println(bytes)
 }
